@@ -30,6 +30,11 @@ public class FuncionarioService {
     }
 
     public static String imprimeFuncionario(Funcionario f){
+
+        if(f == null){
+            throw new RuntimeException("Funcionário inválido!");
+        }
+
         return "Nome: " + f.getNome() + "\n" +
                 "Data de Nasc.: " + exibeData(f.getDataNasc()) + "\n" +
                 "Salário: " + exibeSalario(f.getSalario()) + "\n" +
@@ -44,6 +49,11 @@ public class FuncionarioService {
     }
 
     public static Map<String,List<Funcionario>> agrupaFuncionariosPorFuncao(List<Funcionario> funcionarios){
+
+        if(funcionarios.isEmpty()){
+            throw new RuntimeException("Lista de funcionários vazia!");
+        }
+
         return funcionarios.stream()
                 .collect(Collectors.groupingBy(Funcionario::getFuncao));
     }
