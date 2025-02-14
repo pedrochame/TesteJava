@@ -1,5 +1,8 @@
+
 package service;
 
+import exception.ListaVaziaException;
+import exception.ValorInvalidoException;
 import main.Main;
 import model.Funcionario;
 
@@ -22,6 +25,11 @@ public class FuncionarioService {
     }
 
     public static double calculaSalarioTotal(List<Funcionario> funcionarios) {
+
+        if(funcionarios.isEmpty()){
+            throw new ListaVaziaException("Lista de Funcionários vazia!");
+        }
+
         double salarioTotal = 0.0;
         for (int i = 0; i < funcionarios.size(); i++) {
             salarioTotal += funcionarios.get(i).getSalario().doubleValue();
@@ -32,7 +40,7 @@ public class FuncionarioService {
     public static String imprimeFuncionario(Funcionario f){
 
         if(f == null){
-            throw new RuntimeException("Funcionário inválido!");
+            throw new ValorInvalidoException("Funcionário inválido!");
         }
 
         return "Nome: " + f.getNome() + "\n" +
@@ -42,6 +50,11 @@ public class FuncionarioService {
     }
 
     public static void aumentaSalario(List<Funcionario> funcionarios){
+
+        if(funcionarios.isEmpty()){
+            throw new ListaVaziaException("Lista de Funcionários vazia!");
+        }
+
         for(int i=0;i<funcionarios.size();i++){
             double salario = funcionarios.get(i).getSalario().doubleValue();
             funcionarios.get(i).setSalario(BigDecimal.valueOf(salario+(salario/10)));
@@ -51,7 +64,7 @@ public class FuncionarioService {
     public static Map<String,List<Funcionario>> agrupaFuncionariosPorFuncao(List<Funcionario> funcionarios){
 
         if(funcionarios.isEmpty()){
-            throw new RuntimeException("Lista de funcionários vazia!");
+            throw new ListaVaziaException("Lista de Funcionários vazia!");
         }
 
         return funcionarios.stream()

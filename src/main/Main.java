@@ -15,11 +15,11 @@ public class Main {
         List<Funcionario> funcionarios = new ArrayList<>();
 
         // Tópico 3.1 - Inserir todos os funcionários, na mesma ordem e informações da tabela acima.
-        funcionarios.add(new Funcionario("João",LocalDate.of(1990,1,1),BigDecimal.valueOf(2000),"Desenvolvedor"));
-        funcionarios.add(new Funcionario("Maria",LocalDate.of(1985,3,15),BigDecimal.valueOf(4000), "Analista"));
-        funcionarios.add(new Funcionario("José",LocalDate.of(1992,7,22),BigDecimal.valueOf(2500), "Tester"));
-        funcionarios.add(new Funcionario("Ana",LocalDate.of(1980,9,10),BigDecimal.valueOf(3500), "Gerente"));
-        funcionarios.add(new Funcionario("Pedro",LocalDate.of(1988,12,3),BigDecimal.valueOf(2800), "Gerente"));
+        //funcionarios.add(new Funcionario("João",LocalDate.of(1990,1,1),BigDecimal.valueOf(2000),"Desenvolvedor"));
+        //funcionarios.add(new Funcionario("Maria",LocalDate.of(1985,3,15),BigDecimal.valueOf(4000), "Analista"));
+       // funcionarios.add(new Funcionario("José",LocalDate.of(1992,7,22),BigDecimal.valueOf(2500), "Tester"));
+        //funcionarios.add(new Funcionario("Ana",LocalDate.of(1980,9,10),BigDecimal.valueOf(3500), "Gerente"));
+       // funcionarios.add(new Funcionario("Pedro",LocalDate.of(1988,12,3),BigDecimal.valueOf(2800), "Gerente"));
 
         // Tópico 3.2 - Remover o funcionário “João” da lista
         FuncionarioService.removeFuncionarioPorNome(funcionarios,"João");
